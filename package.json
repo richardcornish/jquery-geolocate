@@ -1,0 +1,30 @@
+{
+  "name": "jquery-geolocate",
+  "version": "0.1.1",
+  "description": "A jQuery plugin to return geocoded addresses from HTML5 geolocation",
+  "main": "./dist/jquery-geolocate.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardcornish/jquery-geolocate.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery"
+  ],
+  "author": "Richard Cornish",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richardcornish/jquery-geolocate/issues"
+  },
+  "homepage": "https://github.com/richardcornish/jquery-geolocate#readme",
+  "dependencies": {
+    "jquery": "^3.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1"
+  }
+}

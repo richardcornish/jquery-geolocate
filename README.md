@@ -1,6 +1,12 @@
 jQuery Geolocate
 ================
 
+[![NPM version](https://badge.fury.io/js/jquery-geolocate.svg)](https://www.npmjs.com/package/jquery-geolocate)
+
+[![Build status](https://travis-ci.org/richardcornish/jquery-geolocate.svg?branch=master)](https://travis-ci.org/richardcornish/jquery-geolocate)
+
+[![Demo](https://richardcornish.github.io/jquery-geolocate/img/map.min.png)](https://richardcornish.github.io/jquery-geolocate/)
+
 **jQuery Geolocate** is a [jQuery](https://jquery.com/) plugin that uses [HTML5 geolocation](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation)
 to find your latitude and longitude, geocodes the coordinates with
 Google’s [Geocoding API](https://developers.google.com/maps/documentation/geocoding/start), and parses the address for components of your

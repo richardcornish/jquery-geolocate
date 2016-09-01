@@ -1,3 +1,5 @@
+/* jQuery Geolocate */
+
 (function(factory) {
     if (typeof module === "object" && typeof module.exports === "object") {
         factory(require("jquery"), window, document);

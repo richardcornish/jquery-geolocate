@@ -1,3 +1,5 @@
+/* jQuery Geolocate */
+
 (function(factory) {
     if(typeof module === "object" && typeof module.exports === "object") {
         factory(require("jquery"), window, document);
@@ -23,34 +25,38 @@
     };
 
     var parse_address = function(results, status, options) {
-        var address = '';
-        var name = '';
-        if (options.components.length === 0) {
-            address = results[0].formatted_address;
-        } else {
-            $.each(results[0].address_components, function() {
-                $.each(this, function(key, value) {
-                    if (key === 'long_name' && options.name === 'long_name') {
-                        name = value;
-                    } else if (key === 'short_name' && options.name === 'short_name') {
-                        name = value;
-                    } else if (key === 'types') {
-                        $.each(value, function(index, value) {
-                            $.each(options.components, function(i, v) {
-                                if (value === v) {
-                                    if (address === '') {
-                                        address = name;
-                                    } else {
-                                        address = address + options.delimeter + name;
+        if (status === 'OK') {
+            var address = '';
+            var name = '';
+            if (options.components.length === 0) {
+                address = results[0].formatted_address;
+            } else {
+                $.each(results[0].address_components, function() {
+                    $.each(this, function(key, value) {
+                        if (key === 'long_name' && options.name === 'long_name') {
+                            name = value;
+                        } else if (key === 'short_name' && options.name === 'short_name') {
+                            name = value;
+                        } else if (key === 'types') {
+                            $.each(value, function(index, value) {
+                                $.each(options.components, function(i, v) {
+                                    if (value === v) {
+                                        if (address === '') {
+                                            address = name;
+                                        } else {
+                                            address = address + options.delimeter + name;
+                                        }
                                     }
-                                }
+                                });
                             });
-                        });
-                    }
+                        }
+                    });
                 });
-            });
+            }
+            return address;
+        } else {
+            return 'Could not an address for your location.';
         }
-        return address;
     };
 
     var insert_text = function(text) {

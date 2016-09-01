@@ -1,9 +1,7 @@
 jQuery Geolocate
 ================
 
-[![NPM version](https://badge.fury.io/js/jquery-geolocate.svg)](https://www.npmjs.com/package/jquery-geolocate)
-
-[![Build status](https://travis-ci.org/richardcornish/jquery-geolocate.svg?branch=master)](https://travis-ci.org/richardcornish/jquery-geolocate)
+[![NPM version](https://badge.fury.io/js/jquery-geolocate.svg)](https://www.npmjs.com/package/jquery-geolocate) [![Build status](https://travis-ci.org/richardcornish/jquery-geolocate.svg?branch=master)](https://travis-ci.org/richardcornish/jquery-geolocate)
 
 [![Demo](https://richardcornish.github.io/jquery-geolocate/img/map.min.png)](https://richardcornish.github.io/jquery-geolocate/)
 

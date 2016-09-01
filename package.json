@@ -1,6 +1,6 @@
 {
   "name": "jquery-geolocate",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A jQuery plugin to return geocoded addresses from HTML5 geolocation",
   "main": "./dist/jquery-geolocate.js",
   "scripts": {

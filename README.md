@@ -1,5 +1,4 @@
-jQuery Geolocate
-================
+# jQuery Geolocate
 
 [![NPM version](https://badge.fury.io/js/jquery-geolocate.svg)](https://www.npmjs.com/package/jquery-geolocate) [![Build status](https://travis-ci.org/richardcornish/jquery-geolocate.svg?branch=master)](https://travis-ci.org/richardcornish/jquery-geolocate)
 
@@ -17,8 +16,7 @@ returns latitude and longitude.
 - [Code repository](https://github.com/richardcornish/jquery-geolocate)
 - [Online demo](https://richardcornish.github.io/jquery-geolocate/)
 
-Install
--------
+## Install
 
 Assuming you have a [`package.json`](https://docs.npmjs.com/files/package.json):
 
@@ -26,8 +24,7 @@ Assuming you have a [`package.json`](https://docs.npmjs.com/files/package.json):
 $ npm install jquery-geolocate --save
 ```
 
-Usage
------
+## Usage
 
 ```
 var jQuery = require('jquery');
@@ -40,8 +37,7 @@ require('jquery-geolocate');
 
 Also see the source of this page for `<script>` tag examples.
 
-Options
--------
+## Options
 
 Default plugin options that you can override:
 
@@ -60,8 +56,7 @@ var defaults = {
 
 See [Address Component Types](https://developers.google.com/maps/documentation/geocoding/intro#Types) in Google's documentation to know which components are available.
 
-Examples
---------
+## Examples
 
 ### Default options (formatted address)
 

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Geolocate</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicon.ico">
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="navbar-header">
+                    <header class="site-header">
+                        <a href="https://richardcornish.github.io/jquery-geolocate/" class="navbar-brand">jQuery Geolocate</a>
+                    </header>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1><img src="img/logo.min.svg" class="img-logo" alt="Logo"> jQuery Geolocate</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+
+            <p><strong>jQuery Geolocate</strong> is a <a href="https://jquery.com/">jQuery</a> plugin that uses <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation">HTML5 geolocation</a> to find your latitude and longitude, geocodes the coordinates with Google&#8217;s <a href="https://developers.google.com/maps/documentation/geocoding/start">Geocoding API</a>, and parses the address for components of your choosing, optionally inserting the result into a DOM element.</p>
+
+            <p>Plugin requires a <a href="https://developers.google.com/maps/documentation/geocoding/get-api-key">Google API key</a> because HTML5 geolocation only returns latitude and longitude.</p>
+
+            <ul>
+                <li><a href="https://www.npmjs.com/package/jquery-geolocate">Package distribution</a></li>
+                <li><a href="https://github.com/richardcornish/jquery-geolocate">Code repository</a></li>
+                <li><a href="https://richardcornish.github.io/jquery-geolocate/">Online demo</a></li>
+            </ul>
+
+            <h2>Install</h2>
+
+            <p>Assuming you have a <a href="https://docs.npmjs.com/files/package.json"><code>package.json</code></a>:</p>
+
+            <pre><code>$ npm install jquery-geolocate --save</code></pre>
+
+            <h2>Usage</h2>
+
+            <pre><code>var jQuery = require('jquery');
+require('jquery-geolocate');
+
+(function($) {
+    // See examples
+})(jQuery);</code></pre>
+
+            <p>Also see the source of this page for <code>&lt;script&gt;</code> tag examples.</p>
+
+            <h2>Options</h2>
+
+            <p>Default plugin options that you can override:</p>
+
+            <pre><code>var defaults = {
+    loading: 'Searching...',
+    formatted_address: true,
+    components: [],
+    name: 'long_name',
+    delimeter: ', ',
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};</code></pre>
+
+            <p>See <a href="https://developers.google.com/maps/documentation/geocoding/intro#Types">Address Component Types</a> in Google&#8217;s documentation to know which components are available.</p>
+
+            <h2>Examples</h2>
+
+            <h3>Default options (formatted address)</h3>
+
+            <div class="demo demo-1">
+                <form>
+                    <div class="form-group">
+                        <label class="sr-only" for="input-1">Location</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-lg input-1" id="input-1">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-lg button-1">Detect location</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+                <pre><code>$('.button-1').on('click', function() {
+    $('.input-1').geolocate();
+});</code></pre>
+            </div>
+
+            <div class="demo demo-2">
+                <h3>Postal code</h3>
+                <form>
+                    <div class="form-group">
+                        <label class="sr-only" for="input-2">Location</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-lg input-2" id="input-2">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-lg button-2">Detect location</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+                <pre><code>$('.button-2').on('click', function() {
+    $('.input-2').geolocate({
+        'components': ['postal_code']
+    });
+});</code></pre>
+            </div>
+
+            <div class="demo demo-3">
+                <h3>City, state, ZIP; short names; pipe delimeter</h3>
+                <form>
+                    <div class="form-group">
+                        <label class="sr-only" for="input-3">Location</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-lg input-3" id="input-3">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-lg button-3">Detect location</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+                <pre><code>$('.button-3').on('click', function() {
+    $('.input-3').geolocate({
+        'components': [
+            'locality',
+            'administrative_area_level_1',
+            'postal_code'
+        ],
+        'name': 'short_name',
+        'delimeter': ' | '
+    });
+});</code></pre>
+            </div>
+
+            <div class="demo demo-4">
+                <h3>No jQuery selector</h3>
+                <form>
+                    <p><button class="btn btn-default btn-lg button-4">Detect location</button></p>
+                </form>
+                <pre><code>$('.button-4').on('click', function() {
+    $.geolocate().done(function(result) {
+        alert(result);
+    });
+});</code></pre>
+                <p>Returns a jQuery <a href="https://api.jquery.com/category/deferred-object/">Deferred Object</a>, so you should use <a href="https://api.jquery.com/deferred.done/">.done()</a> to receive the asynchronous result.</p>
+            </div>
+
+        </div>
+        <div class="col-sm-6">
+            <form>
+                <div class="form-group">
+                    <label class="sr-only" for="input-0">Location</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control input-lg input-0" id="input-0" placeholder="Click &#8220;Detect location&#8221;">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary btn-lg button-0">Detect location</button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+            <div class="map img-thumbnail"></div>
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <hr>
+                <p>&copy; <span class="js-year"></span>. <a href="https://richardcornish.github.io/jquery-geolocate/">jQuery Geolocate</a>.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA34G6bkjLcDmhOZQQtG0ix57lZ0gcWeI"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-geolocate.min.js"></script>
+<script>
+    (function($, google) {
+
+        // Demo 0
+        $('.button-0').on('click', function(e) {
+            $('.input-0').geolocate();
+            e.preventDefault();
+            // Map (not part of plugin)
+            navigator.geolocation.getCurrentPosition(function(position) {
+                addMarker({
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                });
+            });
+        });
+
+        // Demo 1
+        $('.button-1').on('click', function(e) {
+            $('.input-1').geolocate();
+            e.preventDefault();
+        });
+
+        // Demo 2
+        $('.button-2').on('click', function(e) {
+            $('.input-2').geolocate({
+                'components': ['postal_code']
+            });
+            e.preventDefault();
+        });
+
+        // Demo 3
+        $('.button-3').on('click', function(e) {
+            $('.input-3').geolocate({
+                'components': ['locality', 'administrative_area_level_1', 'postal_code'],
+                'name': 'short_name',
+                'delimeter': ' | '
+            });
+            e.preventDefault();
+        });
+
+        // Demo 4
+        $('.button-4').on('click', function(e) {
+            $.geolocate().done(function(result) {
+                alert(result);
+            });
+            e.preventDefault();
+        });
+
+        // Map (not part of plugin)
+        var map = new google.maps.Map($('.map').get(0), {
+            zoom: 3,
+            center: {
+                lat: 37.0625,
+                lng: -95.677068
+            },
+            mapTypeControl: false,
+            streetViewControl: false,
+            scrollwheel: false
+        });
+        var addMarker = function(position) {
+            map.setCenter({
+                lat: position.lat,
+                lng: position.lng
+            })
+            map.setZoom(14);
+            var marker = new google.maps.Marker({
+                position: {
+                    lat: position.lat,
+                    lng: position.lng
+                },
+                map: map,
+                icon: 'img/icon.min.svg',
+                animation: google.maps.Animation.DROP
+            });
+            marker.setMap(map);
+        };
+
+        // Copyright (not part of plugin)
+        var today = new Date();
+        var year = today.getFullYear();
+        $('.js-year').text(year);
+
+    })(jQuery, google);
+</script>
+
+</body>
+</html>

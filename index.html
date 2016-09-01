@@ -203,7 +203,7 @@ require('jquery-geolocate');
             e.preventDefault();
             // Map (not part of plugin)
             navigator.geolocation.getCurrentPosition(function(position) {
-                addMarker({
+                drawMap({
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 });
@@ -253,6 +253,12 @@ require('jquery-geolocate');
             streetViewControl: false,
             scrollwheel: false
         });
+        var markers = [];
+        var removeMarkers = function(markers) {
+            $.each(markers, function(index, value) {
+                markers[index].setMap(null);
+            });
+        };
         var addMarker = function(position) {
             map.setCenter({
                 lat: position.lat,
@@ -269,6 +275,11 @@ require('jquery-geolocate');
                 animation: google.maps.Animation.DROP
             });
             marker.setMap(map);
+            markers.push(marker);
+        };
+        var drawMap = function(position) {
+            removeMarkers(markers);
+            addMarker(position);
         };
 
         // Copyright (not part of plugin)

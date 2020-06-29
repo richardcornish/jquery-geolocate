@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="30px" height="38px" viewBox="0 0 30 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0,14.888802 C4.61470125e-16,5.77760396 6.6659437,8.8817842e-16 14.888802,8.8817842e-16 C23.1116603,8.8817842e-16 29.7776038,5.77760396 29.777604,14.888802 C29.7776041,24 20.7776041,36 14.8888021,36 C9,36 4.61470141e-16,24 0,14.888802 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="29.777604" height="36" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="favicon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logo" transform="translate(-3.000000, -2.000000)">
+            <g transform="translate(3.000000, 2.000000)">
+                <ellipse id="shadow" fill-opacity="0.25" fill="#000000" cx="15" cy="36" rx="10" ry="2"></ellipse>
+                <g id="marker">
+                    <use id="Combined-Shape" stroke="#99231D" mask="url(#mask-2)" stroke-width="4" fill="#FF3B30" xlink:href="#path-1"></use>
+                    <circle id="Oval" fill="#99231D" cx="15" cy="15" r="6"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
